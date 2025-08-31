@@ -1,0 +1,359 @@
+/* Estilos visuales y de estado para MateriaCard */
+/* Card estructura moderna */
+ .materia-card {
+  position: relative;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #fff 60%, #bae6fd 100%);
+  box-shadow: 0 8px 32px 0 #2563eb33, 0 2px 16px 0 #fff8;
+  padding: 1.3em 1em 1em 1em;
+  margin-bottom: 1.1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  transition: box-shadow 0.22s, background 0.22s, transform 0.18s;
+  font-family: 'Inter', 'Roboto', 'Segoe UI', Arial, sans-serif;
+  border: none;
+  background-clip: padding-box;
+  animation: fadeInCard 0.7s cubic-bezier(.4,0,.2,1);
+  width: 170px;
+  height: auto;
+  box-sizing: border-box;
+}
+@keyframes fadeInCard {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.materia-card:hover {
+  box-shadow: 0 12px 48px 0 rgba(37,99,235,0.32), 0 2px 16px 0 rgba(0,0,0,0.10);
+  background: linear-gradient(120deg, #f3f8ff 70%, #bae6fd 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+.modal-abierto .materia-card:hover {
+  box-shadow: none;
+  background: inherit;
+  transform: none;
+  cursor: default;
+}
+.materia-card.pendiente {
+  border-left: 10px solid #ef4444;
+  background: linear-gradient(120deg, #fee2e2 70%, #fca5a5 100%);
+  box-shadow: 0 2px 16px 0 rgba(239,68,68,0.18);
+}
+.materia-card.cursando {
+  border-left: 10px solid #f59e42;
+  background: linear-gradient(120deg, #fff7c2 70%, #fdba74 100%);
+  box-shadow: 0 2px 16px 0 rgba(245,158,66,0.18);
+}
+.materia-card.regular {
+  border-left: 10px solid #1d4ed8;
+  background: linear-gradient(120deg, #dbeafe 70%, #60a5fa 100%);
+  box-shadow: 0 2px 16px 0 rgba(29,78,216,0.18);
+}
+.materia-card.aprobada {
+  border-left: 10px solid #059669;
+  background: linear-gradient(120deg, #bbf7d0 70%, #34d399 100%);
+  box-shadow: 0 2px 16px 0 rgba(5,150,105,0.18);
+}
+.materia-card.bloqueada {
+  opacity: 0.5;
+  background: #f3f4f6;
+  box-shadow: none;
+}
+.badge-obligatoria, .badge-electiva {
+  font-size: 1.3em;
+  font-weight: 700;
+  padding: 0.22em 0.9em;
+  border-radius: 14px;
+  margin-right: 0.5em;
+  box-shadow: 0 2px 12px 0 #2563eb33, 0 1px 8px 0 #fff8;
+  letter-spacing: 0.03em;
+  border: none;
+  backdrop-filter: blur(2px);
+  opacity: 0.97;
+}
+.badge-obligatoria {
+  background: linear-gradient(90deg, #2563eb 60%, #3b82f6 100%);
+  color: #fff;
+  border: 1.5px solid #2563eb44;
+}
+.badge-electiva {
+  background: linear-gradient(90deg, #a21caf 60%, #f43f5e 100%);
+  color: #fff;
+  border: 1.5px solid #a21caf44;
+}
+.materia-card .nombre {
+  font-weight: 700;
+  font-size: 1.15em;
+  color: #23272f;
+  text-align: center;
+  margin-bottom: 0.1em;
+  text-shadow: 0 1px 4px #23272f18;
+}
+.materia-card .bloqueo {
+  color: #e11d48;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 0.2em;
+}
+.materia-card .estado-badge, .materia-card .estado-badge > * {
+  margin: 0.18em auto 0.18em auto;
+  display: block;
+}
+.modal-estados {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2em;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-bottom: 1em;
+}
+.materia-modal-content {
+  background: linear-gradient(120deg, #fff 70%, #bae6fd 100%);
+  border-radius: 24px;
+  min-width: 480px;
+  max-width: 700px;
+  padding: 2.8em 2.2em 2.2em 2.2em;
+  box-shadow: 0 24px 64px 0 #2563eb44, 0 2px 16px 0 #fff8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  font-family: 'Inter', 'Roboto', 'Segoe UI', Arial, sans-serif;
+  background-clip: padding-box;
+  animation: fadeInCard 0.7s cubic-bezier(.4,0,.2,1);
+}
+.materia-modal-content .cerrar {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #64748b;
+  cursor: pointer;
+}
+.materia-modal-content .correlativas {
+  margin-top: 0.7em;
+  font-size: 1.08em;
+  color: #64748b;
+  text-align: left;
+}
+.materia-modal-content .correlativas span {
+  font-weight: 700;
+  color: #a21caf;
+}
+.materia-modal-content .correlativas ul {
+  margin: 0.4em 0 0 1.1em;
+  padding: 0;
+}
+.materia-modal-content .correlativas li {
+  margin-bottom: 0.2em;
+}
+.btn-estado {
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+  color: #fff;
+  padding: 0.9em 2em;
+  font-size: 1.12em;
+  cursor: pointer;
+  box-shadow: 0 2px 12px 0 rgba(37,99,235,0.13);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  outline: none;
+  margin-right: 0.2em;
+  margin-bottom: 0.2em;
+}
+.btn-estado.regular {
+  background: linear-gradient(90deg, #0ea5e9 60%, #38bdf8 100%);
+}
+.btn-estado.cursando {
+  background: linear-gradient(90deg, #fbbf24 60%, #fde68a 100%);
+  color: #23272f;
+}
+.btn-estado.aprobada {
+  background: linear-gradient(90deg, #10b981 60%, #6ee7b7 100%);
+}
+.btn-estado:hover, .btn-estado:focus {
+  filter: brightness(1.08);
+  box-shadow: 0 2px 16px 0 rgba(37,99,235,0.22);
+  transform: translateY(-2px) scale(1.05);
+}
+.btn-estado:active {
+  filter: brightness(0.98);
+  transform: scale(0.98);
+}
+.btn-estado[disabled] {
+  background: #cbd5e1;
+  color: #888;
+  cursor: not-allowed;
+  filter: none;
+}
+.materia-card.bloqueada {
+  opacity: 0.6;
+  background: #f3f4f6;
+  box-shadow: none;
+}
+.materia-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3em;
+}
+.badge-obligatoria, .badge-electiva {
+  font-size: 0.95em;
+  font-weight: 600;
+  padding: 0.25em 0.7em;
+  border-radius: 10px;
+  background: #e0e7ff;
+  color: #2563eb;
+  letter-spacing: 0.02em;
+  margin-right: 0.5em;
+  box-shadow: 0 1px 4px 0 #2563eb18;
+}
+.badge-electiva {
+  background: #f3e8ff;
+  color: #a21caf;
+}
+.materia-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  margin-bottom: 0.2em;
+}
+.materia-card .nombre {
+  font-weight: 700;
+  font-size: 1.08em;
+  color: #23272f;
+  text-align: center;
+  margin-bottom: 0.1em;
+  text-shadow: 0 1px 4px #23272f18;
+}
+.materia-card .bloqueo {
+  color: #e11d48;
+  font-size: 0.98em;
+  font-weight: 500;
+  margin-top: 0.2em;
+}
+.materia-card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 0.95em;
+  color: #64748b;
+}
+.materia-card .estado-badge {
+  margin-left: auto;
+  margin-right: 0.2em;
+}
+/* Estados visuales */
+.materia-card.pendiente {
+  border-left: 6px solid #e5e7eb;
+}
+.materia-card.cursando {
+  border-left: 6px solid #fde68a;
+  background: #fef9c3;
+}
+.materia-card.regular {
+  border-left: 6px solid #38bdf8;
+  background: #e0f2fe;
+}
+.materia-card.aprobada {
+  border-left: 6px solid #6ee7b7;
+  background: #d1fae5;
+}
+/* Modal */
+.materia-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,41,59,0.25);
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+}
+.materia-modal-content {
+  background: #fff;
+  border-radius: 18px;
+  min-width: 340px;
+  max-width: 520px;
+  max-height: 80vh;
+  padding: 2.2em 2em 1.7em 2em;
+  box-shadow: 0 12px 40px 0 #2563eb33;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  font-family: 'Inter', 'Roboto', 'Segoe UI', Arial, sans-serif;
+  background-clip: padding-box;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
+}
+.materia-modal-content .cerrar {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  color: #64748b;
+  cursor: pointer;
+}
+.materia-modal-content .correlativas {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #64748b;
+  text-align: left;
+}
+.materia-modal-content .correlativas span {
+  font-weight: 600;
+  color: #a21caf;
+}
+.materia-modal-content .correlativas ul {
+  margin: 0.4em 0 0 1.1em;
+  padding: 0;
+}
+.materia-modal-content .correlativas li {
+  margin-bottom: 0.2em;
+}
+/* Botones de estado */
+.modal-estados {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1em;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+.btn-estado {
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  color: #fff;
+  padding: 0.8em 1.7em;
+  font-size: 1.08em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(37,99,235,0.10);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  outline: none;
+  margin-right: 0.2em;
+  margin-bottom: 0.2em;
+}
+.btn-estado:hover, .btn-estado:focus {
+  background: #1e40af;
+  box-shadow: 0 2px 12px 0 rgba(37,99,235,0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+.btn-estado:active {
+  background: #2563eb;
+  transform: scale(0.98);
+}
+.btn-estado[disabled] {
+  background: #cbd5e1;
+  color: #888;
+  cursor: not-allowed;
+}
