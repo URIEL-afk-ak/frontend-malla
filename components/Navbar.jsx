@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const navItems = [
+  { href: '/', label: 'Inicio', icon: '🏠' },
   { href: '/malla', label: 'Malla', icon: '📚' },
   { href: '/malla-grafica', label: 'Malla Gráfica', icon: '🗺️' },
   { href: '/notas', label: 'Notas', icon: '📝' },

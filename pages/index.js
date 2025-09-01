@@ -1,16 +1,23 @@
 
+
 export default function Home() {
   return (
-    <div className="container">
-      <div className="card" style={{textAlign:'center', padding:'3.5em 2em'}}>
-        <h1 style={{fontWeight:700, fontSize:'2.2rem', marginBottom:'1.2rem'}}>Bienvenido a la Malla Curricular</h1>
-        <p style={{fontSize:'1.15em', color:'#2563eb', fontWeight:600, marginBottom:'0.7em'}}>Usa el menú para navegar entre las vistas:</p>
-        <div style={{display:'flex', justifyContent:'center', gap:'1.2em', flexWrap:'wrap', marginTop:'1.2em'}}>
-          <span style={{background:'#e0e7ff', color:'#2563eb', borderRadius:'8px', padding:'0.5em 1.2em', fontWeight:600}}>Malla</span>
-          <span style={{background:'#e0e7ff', color:'#2563eb', borderRadius:'8px', padding:'0.5em 1.2em', fontWeight:600}}>Estadísticas</span>
-          <span style={{background:'#e0e7ff', color:'#2563eb', borderRadius:'8px', padding:'0.5em 1.2em', fontWeight:600}}>Notas</span>
-          <span style={{background:'#e0e7ff', color:'#2563eb', borderRadius:'8px', padding:'0.5em 1.2em', fontWeight:600}}>Horarios</span>
-          <span style={{background:'#e0e7ff', color:'#2563eb', borderRadius:'8px', padding:'0.5em 1.2em', fontWeight:600}}>Malla Gráfica</span>
+    <div className="container" style={{display:'flex',justifyContent:'center',alignItems:'center',minHeight:'70vh'}}>
+      <div className="card" style={{
+        textAlign:'center',
+        padding:'3.5em 2.5em',
+        maxWidth:420,
+        margin:'0 auto',
+        border:'2.5px solid #2563eb22',
+        boxShadow:'0 4px 32px 0 #2563eb18',
+        background:'linear-gradient(120deg,#f6f7fa 60%,#e0e7ff 100%)'}}>
+        <h1 style={{fontWeight:800, fontSize:'2.3rem', marginBottom:'1.1rem', color:'#2563eb', letterSpacing:'-1px'}}>Bienvenido a la Malla Curricular</h1>
+        <p style={{fontSize:'1.13em', color:'#23272f', fontWeight:500, marginBottom:'1.5em'}}>Usa el menú para navegar entre las vistas:</p>
+        <div style={{display:'flex', flexDirection:'column', gap:'1.1em', alignItems:'center', marginTop:'1.2em'}}>
+          <a href="/malla" className="btn" style={{width:'100%',maxWidth:260,background:'#2563eb',color:'#fff',fontWeight:700,boxShadow:'0 2px 8px #2563eb22',fontSize:'1.13em',letterSpacing:'0.01em'}}>📚 Malla</a>
+          <a href="/malla-grafica" className="btn" style={{width:'100%',maxWidth:260,background:'#2563eb',color:'#fff',fontWeight:700,boxShadow:'0 2px 8px #2563eb22',fontSize:'1.13em',letterSpacing:'0.01em'}}>🗺️ Malla Gráfica</a>
+          <a href="/notas" className="btn" style={{width:'100%',maxWidth:260,background:'#2563eb',color:'#fff',fontWeight:700,boxShadow:'0 2px 8px #2563eb22',fontSize:'1.13em',letterSpacing:'0.01em'}}>📝 Notas</a>
+          <a href="/horario" className="btn" style={{width:'100%',maxWidth:260,background:'#2563eb',color:'#fff',fontWeight:700,boxShadow:'0 2px 8px #2563eb22',fontSize:'1.13em',letterSpacing:'0.01em'}}>⏰ Horarios</a>
         </div>
       </div>
     </div>

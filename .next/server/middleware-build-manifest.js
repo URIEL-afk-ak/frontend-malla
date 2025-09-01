@@ -29,6 +29,16 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/malla.js"
+    ],
+    "/malla-grafica": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/malla-grafica.js"
+    ],
+    "/notas": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/notas.js"
     ]
   },
   "ampFirstPages": []
