@@ -134,6 +134,7 @@ export default function Notas() {
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ materiaId: mat.id, valor: Number(valor) })
                           });
+                          // Actualizar notas
                           fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notas`)
                             .then(res => res.json())
                             .then(json => {
@@ -142,6 +143,10 @@ export default function Notas() {
                                 setNotas(prev => ({ ...prev, [mat.id]: notaActual?.nota ?? '' }));
                               }
                             });
+                          // Actualizar promedio
+                          fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notas/promedio`)
+                            .then(res => res.json())
+                            .then(json => setPromedio(json.data.promedio));
                           setEditando(null);
                         }}
                         style={{
@@ -155,31 +160,28 @@ export default function Notas() {
                         }}
                       >Guardar</button>
                     ) : (
-                      <button onClick={() => {
-                        setEditando(mat.id);
-                        setNotaEditando(notas[mat.id] !== undefined ? String(notas[mat.id]) : '');
-                        setErrorNota('');
-                      }}
+                      <button
+                        onClick={() => {
+                          setEditando(mat.id);
+                          setNotaEditando(notas[mat.id] !== undefined ? String(notas[mat.id]) : '');
+                          setErrorNota('');
+                        }}
                         style={{
-                          background: '#2563eb',
-                          color: '#fff',
+                          background: 'transparent',
                           border: 'none',
-                          borderRadius: '50%',
-                          width: '32px',
-                          height: '32px',
+                          padding: '4px',
+                          cursor: 'pointer',
                           display: 'inline-flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          boxShadow: '0 1px 4px #2563eb22',
-                          transition: 'background 0.18s, transform 0.18s'
+                          transition: 'filter 0.18s',
+                          filter: 'grayscale(0.3)',
                         }}
-                        onMouseEnter={e => e.currentTarget.style.background = '#1d4ed8'}
-                        onMouseLeave={e => e.currentTarget.style.background = '#2563eb'}
+                        onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0) drop-shadow(0 2px 6px #2563eb33)'}
+                        onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(0.3)'}
                         title="Editar nota"
                       >
-                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V16h2.5l7.06-7.06-2.5-2.5L4 13.5zm12.71-7.29a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.76 3.76 1.83-1.83z" fill="#fff"/></svg>
+                        <svg width="22" height="22" viewBox="0 0 20 20" fill="#2563eb" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V16h2.5l7.06-7.06-2.5-2.5L4 13.5zm12.71-7.29a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.76 3.76 1.83-1.83z"/></svg>
                       </button>
                     )}
                   </td>

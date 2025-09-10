@@ -1,9 +1,12 @@
 {
   "/_app": "pages/_app.js",
+  "/horario": "pages/horario.html",
+  "/horarios": "pages/horarios.html",
   "/_error": "pages/_error.js",
+  "/": "pages/index.html",
+  "/malla-grafica": "pages/malla-grafica.html",
+  "/malla": "pages/malla.html",
+  "/notas": "pages/notas.html",
   "/_document": "pages/_document.js",
-  "/malla": "pages/malla.js",
-  "/malla-grafica": "pages/malla-grafica.js",
-  "/notas": "pages/notas.js",
-  "/horario": "pages/horario.js"
+  "/404": "pages/404.html"
 }
